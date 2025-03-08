@@ -2,9 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Cargar datos (Asegúrate de subir un archivo CSV con los datos o reemplazar esto con tu código de carga)
-df_dept = pd.read_csv("departments_data.csv", index_col=0)
-df_tasas = pd.read_csv("retention_satisfaction.csv", index_col=0)
+# Verificar si el archivo existe antes de cargarlo
+if os.path.exists("university_student_dashboard_data.csv"):
+    df = pd.read_csv("university_student_dashboard_data.csv")
+    st.success("📂 Archivo cargado correctamente.")
+else:
+    st.error("⚠️ Error: No se encontró `university_student_dashboard_data.csv`. Por favor, súbelo al repositorio.")
 
 st.title("📊 Comparación de Tendencias en Departamentos")
 
